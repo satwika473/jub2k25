@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+
+
+/*.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}*/
+
+h1 {
+  margin-bottom: 40px;
+  color: #eee7e7;
+}
+
+/* Card container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Coordinator Card */
+.coordinator-card {
+  background: linear-gradient(grey, white, rgb(121, 119, 119), silver);
+  border-radius: 10px;
+  box-shadow: 10 4px 6px white, 0 0 15px rgba(198, 251, 251, 0.8); /* Glowing border effect */
+  overflow: hidden;
+  width: 250px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  perspective: 1000px; /* Enables 3D flip effect */
+}
+
+/* Optional: Add glow on hover */
+.coordinator-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 255, 255, 1); /* Glowing border on hover */
+}
+
+/* Coordinator Photo Flip Container */
+.coordinator-photo {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.flip-container {
+  
+  width: 150px;
+  height: 140px;
+  border-radius: 50%;
+  transform-style: preserve-3d; /* Allows the flipping */
+  transition: transform 0.6s ease-in-out;
+ 
+}
+
+.coordinator-card:hover .flip-container {
+  transform: rotateY(180deg); /* Flip the image on hover */
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back side when not flipped */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front {
+  background: #ccc;
+  overflow: hidden;
+}
+
+.front img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.back {
+  background: #0a0a0a;
+  color: #fff;
+  transform: rotateY(180deg);
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #1da1f2; /* Highlighted color (Twitter Blue here) */
+}
+
+/* Coordinator Details */
+.coordinator-details {
+  padding: 15px;
+  text-align: left;
+}
+
+.coordinator-details h2 {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #0f0e0e;
+}
+
+.coordinator-details p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.coordinator-details p strong {
+  color: #080808;
+}
+
+
+/* Event Buttons */
+
+.event-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+.event-btn{
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  margin: 1rem;
+  border: none;
+  background-color: #dc76e3; /* Primary color */
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  transition: background 0.3s;
+}
+
+.nav-list li a:hover {
+  background: #555;
+  border-radius: 5px;
+}
+
+/* Menu Toggle Icons */
+.menu-toggle {
+  display: none; /* Hide in desktop view */
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+}
+
+.menu-toggle .icon {
+  display: none; /* Hide both icons by default */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Show the menu toggle in mobile view */
+  .menu-toggle {
+      display: block;
+  }
+
+  /* Nav list hidden by default */
+  .nav-list {
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: -70%;
+      height: 100vh;
+      width: 250px;
+      background-color: #333;
+      transition: left 0.3s;
+      padding: 20px;
+      z-index: 1000;
+  }
+
+  .nav-list.active {
+      left: 0; /* Slide-in effect */
+  }
+
+  /* Menu and Close Icons */
+  #menu-icon {
+      display: block; /* Show hamburger icon initially */
+  }
+
+  #close-icon {
+      display: none; /* Hide close icon initially */
+  }
+
+  /* When Navbar is Active */
+  .menu-toggle.active #menu-icon {
+      display: none; /* Hide hamburger icon when active */
+  }
+
+  .menu-toggle.active #close-icon {
+      display: block; /* Show close icon when active */
+  }
+}
+
+
+body {
+  width: 100%;
+  min-height: 120vh;
+  background-image: url('https://img.freepik.com/free-vector/watercolor-abstract-background-with-grunge-effect_1340-4291.jpg?t=st=1734534832~exp=1734538432~hmac=4b7c139b80770c39bbcc5db2b76bf8aec409f33fc76f080b003c0c1d3d0779e5&w=740');
+  background-position: center;
+  background-size: cover;
+
+}
+
+
+        .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+  background-color:transparent;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  
+  transition: background 0.3s;
+}
+
+.nav-list li a:hover {
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+/* Menu Toggle Icons */
+.menu-toggle {
+  display: none; /* Hide in desktop view */
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+}
+
+.menu-toggle .icon {
+  display: none; /* Hide both icons by default */
+}
+
+.register-btn{
+          background-color: #f43786;
+          padding:10px;
+          border-radius:8px;
+        }
+
+        .register-btn:hover{
+          background-color:#22dbcf;
+          padding:12px;
+          border-radius:8px;
+        }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Show the menu toggle in mobile view */
+  .menu-toggle {
+      display: block;
+  }
+
+  /* Nav list hidden by default */
+  .nav-list {
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: -70%;
+      height: 100vh;
+      width: 250px;
+      background-color: #0009;
+      transition: left 0.3s;
+      padding: 20px;
+      z-index: 1000;
+  }
+
+  .nav-list.active {
+      left: 0; /* Slide-in effect */
+  }
+
+  /* Menu and Close Icons */
+  #menu-icon {
+      display: block; /* Show hamburger icon initially */
+  }
+
+  #close-icon {
+      display: none; /* Hide close icon initially */
+  }
+
+  /* When Navbar is Active */
+  .menu-toggle.active #menu-icon {
+      display: none; /* Hide hamburger icon when active */
+  }
+
+  .menu-toggle.active #close-icon {
+      display: block; /* Show close icon when active */
+  }
+}
+.margin{
+    margin-bottom: auto;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"></div>
+            <div class="menu-toggle" id="menu-toggle">
+                <span id="menu-icon" class="icon">☰</span> <!-- Hamburger Icon -->
+                <span id="close-icon" class="icon">✕</span> <!-- Close Icon -->
+            </div>
+            <ul class="nav-list" id="nav-list">
+                <li><a href="/home.html">HOME</a></li>
+                <li><a href="/about.html">ABOUT US</a></li>
+                <li style="position: relative;"><a href="">EVENTS</a>
+                  <ul class="dropdown">
+                    <li><a href="/events/culturals/culturals.html">Cultural Events</a></li>
+                    <li><a href="/events/cse_events/index.html">CSE Events</a></li>
+                    <li><a href="/events/ece_events/index.html">ECE EVENTS</a></li>
+                    <li><a href="/events/eee_events/index.html">EEE EVENTS</a></li>
+                    <li><a href="/events/civil_events/index.html">ECE EVENTS</a></li>
+                    <li><a href="/events/mba_events/index.html">ECE EVENTS</a></li>
+                    <li><a href="/events/mech_events/index.html">ECE EVENTS</a></li>
+                  </ul>
+                </li>
+                <li><a href="/stalls/stalls.html">STALLS</a></li>
+                <li><a href="/sports/index.html">SPORTS</a></li>
+                <li><a href="/team/index.html">OUR TEAM</a></li>
+                <li><a href="/contact.html">CONTACT US</a></li>
+                <li><a href="#register"><button class="register-btn">REGISTER NOW</button></a></li>
+            </ul>
+        </nav>
+  
+    
+  </header>
+
+        <h1 style="align-items: center; color:white; display:flex; justify-content: center; text-decoration: underline;">HEAD OF THE DEPARTMENTS</h1>
+
+          <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-4 col-lg-3 margin">
+                    <div class="coordinator-card">
+                        <div class="coordinator-photo">
+                          <div class="flip-container">
+                            <div class="front">
+                              <img src="https://i0.wp.com/www.nrtec.in/wp-content/uploads/2016/10/cse-hod-thirumalrao.png?w=870&ssl=1" alt="Coordinator 2">
+                            </div>
+                            <div class="back">
+                              <div class="social-icons">
+                                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="coordinator-details">
+                          <h2>D r. S. N. Thirumala Rao</h2>
+                          <p>Head of Department of CSE</p>
+                          
+                        </div>
+                      </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3 margin">
+                    <div class="coordinator-card">
+                        <div class="coordinator-photo">
+                          <div class="flip-container">
+                            <div class="front">
+                              <img src="https://i0.wp.com/www.nrtec.in/wp-content/uploads/2018/04/ce-hod.png?w=870&ssl=1" alt="Coordinator 2">
+                            </div>
+                            <div class="back">
+                              <div class="social-icons">
+                                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="coordinator-details">
+                          <h2>Dr P Naga Sowjanya </h2>
+                          <p> Head of Department of Civil</p>
+                          
+                        </div>
+                      </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3 margin">
+                    <div class="coordinator-card">
+                        <div class="coordinator-photo">
+                          <div class="flip-container">
+                            <div class="front">
+                              <img src="https://i0.wp.com/www.nrtec.in/wp-content/uploads/2018/06/Head-of-the-Department-5.jpg?w=870&ssl=1" alt="Coordinator 2">
+                            </div>
+                            <div class="back">
+                              <div class="social-icons">
+                                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="coordinator-details">
+                          <h2>Dr.Veeravalli Venkata Rao</h2>
+                          <p>Head of Department of ECE</p>
+                          
+                        </div>
+                      </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="coordinator-card">
+                        <div class="coordinator-photo">
+                          <div class="flip-container">
+                            <div class="front">
+                              <img src="https://i0.wp.com/www.nrtec.in/wp-content/uploads/2018/04/eee-hod-shareef.png?w=870&ssl=1" alt="Coordinator 2">
+                            </div>
+                            <div class="back">
+                              <div class="social-icons">
+                                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="coordinator-details">
+                          <h2>Dr.SK.MD.Shareef</h2>
+                          <p>Head of the Department of EEE.</p>
+                          
+                        </div>
+                      </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="coordinator-card">
+                        <div class="coordinator-photo">
+                          <div class="flip-container">
+                            <div class="front">
+                              <img src="https://i0.wp.com/www.nrtec.in/wp-content/uploads/2018/04/Mechanical-HOD-1.png?w=870&ssl=1" alt="Coordinator 2">
+                            </div>
+                            <div class="back">
+                              <div class="social-icons">
+                                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="coordinator-details">
+                          <h2>Dr B Venkata Siva</h2>
+                          <p>Head of the Department of Mech</p>
+                        </div>
+                      </div>
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="coordinator-card">
+                        <div class="coordinator-photo">
+                          <div class="flip-container">
+                            <div class="front">
+                              <img src="https://i0.wp.com/www.nrtec.in/wp-content/uploads/2018/04/mba-1.jpg?w=870&ssl=1" alt="Coordinator 2">
+                            </div>
+                            <div class="back">
+                              <div class="social-icons">
+                                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="coordinator-details">
+                          <h2>Dr. P. Pattabhi Ram </h2>
+                          <p> Head of the Department of MBA</p>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="coordinator-card">
+                        <div class="coordinator-photo">
+                          <div class="flip-container">
+                            <div class="front">
+                              <img src="https://i0.wp.com/www.nrtec.in/wp-content/uploads/2018/05/BS-Hod.jpg?w=870&ssl=1" alt="Coordinator 2">
+                            </div>
+                            <div class="back">
+                              <div class="social-icons">
+                                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="coordinator-details">
+                          <h2>Dr K Ponnari Lakshmi</h2>
+                          <p> Head of the Department of BS&H</p>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="coordinator-card">
+                        <div class="coordinator-photo">
+                          <div class="flip-container">
+                            <div class="front">
+                              <img src="https://i0.wp.com/www.nrtec.in/wp-content/uploads/2018/04/mca-hod-1.jpg?resize=870%2C285&ssl=1" alt="Coordinator 2">
+                            </div>
+                            <div class="back">
+                              <div class="social-icons">
+                                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="coordinator-details">
+                          <h2>Dr K.LakshmiNadh </h2>
+                          <p> Head of the Department of MCA</p>
+                        </div>
+                      </div>
+                </div>
+                
+                <div class="col-lg-3"></div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="coordinator-card">
+                        <div class="coordinator-photo">
+                          <div class="flip-container">
+                            <div class="front">
+                              <img src="https://i0.wp.com/www.nrtec.in/wp-content/uploads/2023/08/teacher-it.jpg?w=863&ssl=1" alt="Coordinator 2">
+                            </div>
+                            <div class="back">
+                              <div class="social-icons">
+                                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="coordinator-details">
+                          <h2> Dr. B. Jhansi Vazram</h2>
+                          <p> Head of the Department of IT&AI</p>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="coordinator-card">
+                        <div class="coordinator-photo">
+                          <div class="flip-container">
+                            <div class="front">
+                              <img src="https://i0.wp.com/www.nrtec.in/wp-content/uploads/2023/07/ai-hod-1.png?resize=870%2C285&ssl=1" alt="Coordinator 2">
+                            </div>
+                            <div class="back">
+                              <div class="social-icons">
+                                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="coordinator-details">
+                          <h2>Dr. V.V.A.S. Lakshmi</h2>
+                          <p> Head of the Department of AIML,CS,DS</p>
+                        </div>
+                      </div>
+                </div>
+                
+            </div>
+          </div>
+    </header>
+    
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+      const navList = document.getElementById('nav-list');
+
+      // Toggle functionality
+      menuToggle.addEventListener('click', () => {
+          navList.classList.toggle('active'); // Toggle the navbar visibility
+          menuToggle.classList.toggle('active'); // Toggle between menu and close icons
+      });
+
+      function showEvent(event) {
+  const facultyContainer = document.getElementById("faculty-container");
+  const studentContainer = document.getElementById("student-container");
+
+  facultyContainer.innerHTML = ""; // Clear previous faculty cards
+  studentContainer.innerHTML = ""; // Clear previous student cards
+
+  const { faculty, students } = events[event];
+
+  faculty.forEach(({ name, role, branch ,image}) => {
+    const card = document.createElement("div");
+    card.className = "coordinator-card";
+    card.innerHTML = `<div class="coordinator-photo">
+          <div class="flip-container">
+            <div class="front">
+              <img src="${image}" alt="Coordinator 1">
+            </div>
+            <div class="back">
+              <div class="social-icons">
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="coordinator-details">
+          <h2>${name}</h2>
+          <p><strong>Position:</strong> ${role}</p>
+          <p><strong>Branch:</strong> ${branch}</p>
+        </div>`;
+    facultyContainer.appendChild(card);
+  });
+}
+    </script>
+</body>
+</html>

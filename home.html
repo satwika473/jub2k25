@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Jubilation Event- 2K25</title>
+    <link rel="shortcut icon" href="home-images/favicon.png" />  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <style>
+      
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@1,500;1,600&family=Montserrat:wght@600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+::selection {
+  background-color: #c50529;
+}
+header {
+ 
+  min-height: 100vh;
+  background-image: url('https://img.freepik.com/premium-photo/neon-ring-starry-night_980225-49276.jpg?w=826');
+  background-position: center;
+  background-size: cover;
+  
+}
+.logo img{
+    height:45%;
+    width:40%;
+}
+nav {
+  display: flex;
+  padding: 2.5% 5%;
+}
+nav img {
+  width: 180px;
+  height: 36px;
+  cursor: pointer;
+}
+nav ul {
+  text-align: right;
+  flex: 1;
+}
+nav ul li {
+  display: inline-block;
+  padding: 6px 15px;
+}
+nav ul li a {
+  color: white;
+  font-size: 16px;
+}
+nav ul li a:hover {
+  color: #c50529;
+}
+nav ul li a::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  display: block;
+  transition: 0.6s;
+  background-color: #348014;
+}
+nav ul li a:hover::after {
+  width: 100%;
+}
+.head {
+  text-align: center;
+  justify-content: center;
+  color: white;
+  margin-top: 6%;
+}
+.head h1 {
+  font-size: 86px;
+  padding-bottom: 25px;
+  line-height: 1.2em;
+}
+.head p {
+  line-height: 1.4;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 300 !important;
+  font-size: 23px;
+  letter-spacing: 1px;
+  margin-bottom: 3%;
+}
+.button {
+  padding: 15px 40px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold !important;
+  font-size: 24px;
+  border-radius: 5px;
+  background: linear-gradient(110deg, #14eae3 40%, #f43786 60%);
+}
+#check-btn {
+  font-size: 20px;
+  color: white;
+  float: right;
+  flex: 1;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+/* Responsive  */
+@media (max-width: 858px) {
+  #check-btn {
+    display: block;
+    color: #c50529;
+  }
+  nav ul {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient( rgb(252, 123, 144), rgb(58, 240, 250));
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 30px 0;
+    line-height: 30px;
+  }
+  nav ul li a {
+    color: white;
+    font-size: 20px;
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
+  body {
+        height: auto; /* Allow scrolling if necessary */
+    }
+    
+    .ul {
+        flex-direction: row; /* Stack items vertically */
+        gap: 0.1rem; /* Larger spacing for better readability */
+    }
+
+    li span {
+        font-size: 2rem; /* Further reduce size for smaller devices */
+    }
+
+    .separator {
+        font-size: 2rem; /* Adjust separator size */
+    }
+
+    .time-box {
+        height: max-content;
+        width: max-content;
+    }
+}
+@media (min-width: 636px) {
+  .head h1 {
+    font-size: 70px;
+  }
+  .head p {
+    font-size: 16px;
+    padding-bottom: 5%;
+  }
+  button {
+    padding: 8px 20px;
+    font-size: 16px;
+  }
+  body {
+        height: auto; /* Allow scrolling if necessary */
+    }
+    
+    .ul {
+        flex-direction: row; /* Stack items vertically */
+        gap: 0.1rem; /* Larger spacing for better readability */
+    }
+
+    li span {
+        font-size: 2rem; /* Further reduce size for smaller devices */
+    }
+
+    .separator {
+        font-size: 2rem; /* Adjust separator size */
+    }
+
+    .time-box {
+        height: max-content;
+        width: max-content;
+    }
+    nav ul li a{
+      line-height: 0%;
+    }
+    .dropdown li {
+  line-height: 1.2; /* Adjust as needed */
+  margin: 0; /* Optional: Removes extra space between items */
+  padding: 5px 0; /* Optional: Adjust spacing inside the items */
+}
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+ 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* other */
+.info {
+  margin: 20px 0;
+  text-align: center;
+}
+
+p {
+  color: #2e2e2e;
+  margin-bottom: 20px;
+}
+
+
+/* block-$ */
+.block-effect {
+  font-size: calc(8px + 6vw);
+}
+
+.block-reveal {
+  --t: calc(var(--td) + var(--d));
+  font-size: calc(8px + 6vw);
+  color: transparent;
+  padding: 4px;
+
+  position: relative;
+  overflow: hidden;
+ 
+  animation: revealBlock 0s var(--t) forwards;
+}
+.dropdown {
+  z-index: 2;
+      display: none;
+      position: absolute;
+      top: 100%; /* Aligns dropdown below the parent */
+      left: 0;
+      background-color: #333;
+      min-width: 260px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .dropdown li {
+      display: block; /* Stack dropdown items vertically */
+    }
+    .dropdown a {
+      padding: 10px 20px;
+    }
+    /* Show dropdown on hover */
+    li:hover .dropdown {
+      display: block;
+    }
+.block-reveal::after {
+  content: '';
+
+  width: 10%;
+  height: 100%;
+  padding-bottom: 0px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: var(--bc);
+  animation: revealingIn var(--td) var(--d) forwards, revealingOut var(--td) var(--t) forwards;
+}
+
+
+/* animations */
+@keyframes revealBlock {
+  100% {
+    color: #fefcfc;
+  }
+}
+
+@keyframes revealingIn {
+
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes revealingOut {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+
+}
+
+.abs-site-link {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  color: hsla(0, 0%, 0%, .6);
+  font-size: 16px;
+}
+.container2{
+    height: 150px; /* Ensure full height for mobile */
+    width: 100%;
+    background-size: cover;
+    margin-top: 53px;
+    margin-bottom: 10px;
+}
+
+.ul {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: center;
+    gap: 10px; /* Add spacing for mobile layout */
+    padding: 0;
+}
+
+.list {
+    list-style-type: none;
+    font-size: smaller; /* Adjust font size */
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+}
+
+li span {
+    display: block;
+    font-size: 2rem; /* Reduce size for better mobile fit */
+    color:#fff;
+}
+
+.separator {
+    margin: 0 5px;
+    font-size: 2rem; /* Match with span size */
+    line-height: 1;
+    color: black;
+}
+
+.time-box {
+    height: max-content; 
+    width: max-content; 
+    padding: 6px;
+    background:url(https://img.freepik.com/premium-photo/neon-ring-starry-night_980225-49276.jpg?w=826);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    border-color: aqua;
+    border-width: 2px;
+}
+
+
+#headline {
+    color: whitesmoke;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    display: flex;
+    font-size:larger;
+    margin-top: 0px;
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+
+
+.scroll-container{
+    margin-bottom: 0px;
+    margin-top: 20px;
+   /* display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; */
+}
+
+.scroll-btn{
+    border-radius:10px;
+    border-color: #8a2be2;
+    height: 65px;
+    font-weight: 10px;
+    border-width: 3px;
+    background:url(https://img.freepik.com/premium-photo/neon-ring-starry-night_980225-49276.jpg?w=826);
+    backdrop-filter: blur(5px);
+    width: 110px;
+    font-size: 25px;
+    color:whitesmoke;
+    font-family: 'Times New Roman', Times, serif;
+  
+}
+
+.scroll-btn:hover{
+    border-radius:20px;
+    height: 70px;
+    background-color: whitesmoke;
+    border-width: 3px;
+    width: 120px;
+    font-size: 30px;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+/*#branch-scroll{
+    height: 50%;
+    width: 100%;
+    background-color: rgb(240, 25, 240);
+    background-size: cover;
+}*/
+@media (max-width: 768px) {
+            .scroll-btn {
+                height: 50px;
+                width: 90px;
+                font-size: 18px;
+                border-radius: 15px;
+            }
+
+            /*.scroll-container {
+                padding: 16px;
+                margin-bottom: 0px;
+            }*/
+
+            .scroll-carousel {
+                mask-image: linear-gradient(to right, transparent 0, black 64px, black calc(100% - 64px), transparent 100%);
+                -webkit-mask-image: linear-gradient(to right, transparent 0, black 64px, black calc(100% - 64px), transparent 100%);
+            }
+
+        }
+
+.check{
+  color: whitesmoke;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    display: flex;
+    font-size:larger;
+    margin-top: 0px;
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+
+
+
+.footer {
+            padding: 1rem 0;
+        }
+    
+        .logos img {
+            max-width: 100%;
+        }
+    
+        .college-img img {
+            max-height: 250px;
+            object-fit: contain;
+        }
+    
+        @media (min-width: 768px) {
+            .footer .container {
+                display: flex;
+                flex-wrap: nowrap;
+            }
+    
+            .footer .links ul {
+                display: inline-block;
+            }
+    
+            .associations {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+    
+        @media (max-width: 768px) {
+            .footer .container {
+                flex-direction: column;
+            }
+    
+            .footer .map, 
+            .footer .links, 
+            .footer .logos {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+    
+            .associations {
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+    
+            .college-img img {
+                max-width: 100%;
+                max-height: 200px;
+            }
+        }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" id="check-btn">
+          <i class="fas fa-bars"></i>
+        </label>
+    
+     <ul>
+          <li><a href="/events/home.html">HOME</a></li>
+          <li><a href="/about.html">ABOUT US</a></li>
+          <li style="position:relative;">
+            <a href="">EVENTS</a>
+            <ul class="dropdown" style="line-height: 1.2; margin: 0; padding: 5px 0;">
+              <li style="line-height: 1.2; margin: 0; padding: 5px 0; display: block; background: #f884eb; ">
+                <a href="/events/culturals/culturals.html">Cultural Events</a>
+              </li>
+              <li style="line-height: 1.2; margin: 0; padding: 5px 0;display: block; background:  #f884eb; ">
+                <a href="/events/cse_events/index.html">CSE Events</a>
+              </li>
+              <li style="line-height: 1.2; margin: 0; padding: 5px 0;background:  #f884eb;">
+                <a href="/events/ece_events/index.html">ECE EVENTS</a>
+              </li>
+              <li style="line-height: 1.2; margin: 0; padding: 5px 0;background:  #f884eb;">
+                <a href="/events/eee_events/index.html">EEE EVENTS</a>
+              </li>
+              <li style="line-height: 1.2; margin: 0; padding: 5px 0;background:  #f884eb;">
+                <a href="/events/civil_events/index.html">CIVIL EVENTS</a>
+              </li>
+              <li style="line-height: 1.2; margin: 0; padding: 5px 0;background:  #f884eb;">
+                <a href="/events/mba_events/index.html">MBA EVENTS</a>
+              </li>
+              <li style="line-height: 1.2; margin: 0; padding: 5px 0;background:  #f884eb;">
+                <a href="/events/mech_events/index.html">MECH EVENTS</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li><a href="/stalls/stalls.html">STALLS</a></li>
+          <li><a href="/sports/index.html">SPORTS</a></li>
+          <li><a href="/team/index.html">OUR TEAM</a></li>
+          <li><a href="/Faculty/faculty.html">CONTACT US</a></li>
+        </ul>
+      </nav>
+      <div class="head">
+        <div class="content">
+            <h1 class="block-effect" style="--td: 1.2s">
+                <div class="block-reveal" style="--bc: #22dbcf; --d: .1s">NEC</div>
+                <div class="block-reveal" style="--bc: #f52c5e; --d: .5s">Jubiliation-2k25</div>
+              </h1>
+              
+          </div>
+            
+        <button class="button">Register Now</button>
+      </div>
+      <div class="row">
+            <div class="col-sm-12 col-lg-6">
+              <div class="container2"> <!--container-->
+                <h1 id = "headline">About to start at</h1>
+                <div id="countdown" class="countdown">
+                    <ul class="ul">
+                        <div class="time-box">
+                            <li class="list"><span id="days">00</span>days</li>
+                        </div>
+        
+                        <li class="separator">:</li>
+        
+                        <div class="time-box">
+                            <li class="list"><span id="hours">00</span>hours</li>
+                        </div>
+        
+                        <li class="separator">:</li>
+        
+                        <div class="time-box">
+                            <li class="list"><span id="minutes">00</span>minutes</li>
+                        </div>
+                        
+                        <li class="separator">:</li>
+        
+                        <div class="time-box">
+                            <li class="list"><span id="seconds">00</span>seconds</li>
+                        </div>
+                    </ul>
+                </div>
+        
+            </div>
+            </div>
+
+            <div class="col-sm-12 col-lg-6">
+              <div class="relative font-inter antialiased">
+                  <div class="w-full max-w-md mx-auto px-2 py-12 scroll-container">
+                      <div class="text-center">
+                          <!-- Logo Carousel animation -->
+                          <h1 class="check">check the events</h1>
+                          <div
+                              x-data="{}"
+                              x-init="$nextTick(() => {
+                                  let ul = $refs.logos;
+                                  ul.insertAdjacentHTML('afterend', ul.outerHTML);
+                                  ul.nextSibling.setAttribute('aria-hidden', 'true');
+                              })"
+                              class="w-full inline-flex flex-nowrap overflow-hidden scroll-carousel"
+                          >
+                          
+                              <ul x-ref="logos" class="flex items-center justify-center [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll">
+                                  <li>
+                                      <a href="/events/cse_events/index.html"><button type="button" class="btn btn-light scroll-btn">CSE</button></a>
+                                  </li>
+                                  <li>
+                                      <a href="/events/civil_events/index.html"><button type="button" class="btn btn-light scroll-btn">CIVIL</button></a>
+                                  </li>
+                                  <li>
+                                      <a href="/events/mech_events/index.html"><button type="button" class="btn btn-light scroll-btn">MECH</button></a>
+                                  </li>
+                                  <li>
+                                      <a href="/events/ece_events/index.html"><button type="button" class="btn btn-light scroll-btn">ECE</button></a>
+                                  </li>
+                                  <li>
+                                      <a href="/events/eee_events/index.html"><button type="button" class="btn btn-light scroll-btn">EEE</button></a>
+                                  </li>
+                                  <li>
+                                      <a href="/events/mba_events/index.html"><button type="button" class="btn btn-light scroll-btn">MBA</button></a>
+                                  </li>
+                              </ul>
+                          </div>
+                          <!-- End: Logo Carousel animation -->
+                      </div>
+                  </div>
+              </div>
+              </div>
+      </div>
+    </header>
+
+    
+      
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted ">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Narasaraopeta Engineering College
+          </h6>
+          <p>
+            Narasaraopeta Engineering College Fest Jubilation has over the years evolved and diversified into a melting pot of talent and technology.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Quick Links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Technical Events</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Cultural Events</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Sports Events</a>
+          </p>
+          
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Special links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Stalls</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Contact Us</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Meet our team</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> NEC, Narasaraopeta, Palnadu</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            nrtec.in
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+        
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3831.402602532963!2d80.05360455410317!3d16.19972912086153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a8729805efff9%3A0x3c49f6f7829f8426!2sNarasaraopeta%20Engineering%20College%20(Autonomous)!5e0!3m2!1sen!2sin!4v1734158389564!5m2!1sen!2sin" 
+        width="100%" 
+        height="200" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+        
+    </iframe>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;"></div>
+         <img style="width: 30%;height: 30%;" src="https://i0.wp.com/www.nrtec.in/wp-content/uploads/2018/05/logo-nec1.png?w=663&ssl=1" alt="">
+      
+      <!-- Grid row -->
+       <img style="width: 30%;height: 30%;"src="https://www.nrtec.in/wp-content/uploads/2024/08/new-heder-logo-1.png" alt="">
+      <img style="width: 20%;height: 15%;"src="logos.jpeg" alt=""> 
+      </div>
+       <h1 >Sponsored by</h1>
+       <div class="container p-4">
+        <!-- Section: Images -->
+        <section class="">
+          <div class="row">
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div data-mdb-ripple-init
+                class="bg-image hover-overlay shadow-1-strong rounded"
+                data-ripple-color="light"
+              >
+                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="w-100" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div data-mdb-ripple-init
+                class="bg-image hover-overlay shadow-1-strong rounded"
+                data-ripple-color="light"
+              >
+                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/111.webp" class="w-100" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div data-mdb-ripple-init
+                class="bg-image hover-overlay shadow-1-strong rounded"
+                data-ripple-color="light"
+              >
+                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/112.webp" class="w-100" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div data-mdb-ripple-init
+                class="bg-image hover-overlay shadow-1-strong rounded"
+                data-ripple-color="light"
+              >
+                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/114.webp" class="w-100" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div data-mdb-ripple-init
+                class="bg-image hover-overlay shadow-1-strong rounded"
+                data-ripple-color="light"
+              >
+                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/115.webp" class="w-100" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div data-mdb-ripple-init
+                class="bg-image hover-overlay shadow-1-strong rounded"
+                data-ripple-color="light"
+              >
+                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/116.webp" class="w-100" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Section: Images -->
+      </div>
+      <!-- Grid container -->
+  
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2025 Copyright:
+    <a class="text-reset fw-bold" href="https://www.nrtec.in/"> NEC</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+  </div>
+
+
+  </body>
+
+  <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+                    },
+                    keyframes: {
+                        'infinite-scroll': {
+                            from: { transform: 'translateX(0)' },
+                            to: { transform: 'translateX(-100%)' },
+                        }
+                    }
+                },
+            },
+        };
+        var daysEl=document.getElementById('days');
+        var hoursEl=document.getElementById('hours');
+        var minutesEl=document.getElementById('minutes');
+        var secondsEl=document.getElementById('seconds');
+
+        function countdownTimer(){
+            const countDownDate= new Date('01/24/2025 12:00').getTime()
+  
+            const second =1000
+            const minute=second*60
+            const hour=minute*60
+            const day=hour*24
+
+
+            const interval=setInterval(()=>{
+                const now = new Date().getTime()
+                const distance=countDownDate-now
+
+                daysEl.innerText=formatNumber(Math.floor(distance / day))
+                hoursEl.innerText=formatNumber(Math.floor((distance % day)/ hour))
+                minutesEl.innerText=formatNumber(Math.floor((distance % hour)/ minute))
+                secondsEl.innerText=formatNumber(Math.floor((distance % minute)/ second))
+
+                if(distance<0){
+                    document.getElementById('headline').innerText="waiting day has been arrived";
+                    document.getElementById('countdown').style.display='none';
+
+
+                    clearInterval(interval)
+                }
+
+            },1000);
+          }
+
+
+        function formatNumber(number){
+            if(number<10){
+                return '0'+number
+
+            }
+            return number
+        }
+        countdownTimer()
+  </script>
+
+    
+</html>
